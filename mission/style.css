@@ -1,3 +1,11 @@
+.dark {
+    background-color: #333;
+    color: white;
+}
+.dark h2 {
+    color: #2998e1;
+}
+/* contrast must be above 4*/
 body {
     font-size: 20px;
     font-family: 'Times New Roman';
@@ -44,7 +52,7 @@ h2 {
 
 /* find out how to do expanded underline */
 
-img {
+#logo {
     width: 150px;
     line-height: 1.5em;
 }
