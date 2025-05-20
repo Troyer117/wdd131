@@ -1,16 +1,13 @@
 function toggleMenu() {
     const menu = document.getElementById("dropdownMenu");
     menu.classList.toggle("show");
-    menu.classList.remove("hide");
 }
 function handleResize() {
     const menu = document.getElementById("dropdownMenu");
     if (window.innerWidth > 1000) {
-        menu.classList.remove("hide");
         menu.classList.add("show");
     } else {
         menu.classList.remove("show");
-        menu.classList.add("hide");
     }
 }
 window.addEventListener("load", handleResize);

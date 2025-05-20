@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="author" content="Troy Justesen">
     <meta name="description" content="Cool Pics - A collection of cool pictures.">
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cool Pics</title>
     <link rel="stylesheet" href="coolpics.css">
@@ -12,13 +12,15 @@
 <body>
     <header>
         <h1>Cool Pics 📷</h1>
-        <button class="dropbtn" onclick="toggleMenu()">Menu</button>
-        <div id="dropdownMenu" class="dropdown-content">
-            <a href="coolpics/index.html">Home</a>
-            <a href="coolpics/people.html">People</a>
-            <a href="coolpics/places.html">Places</a>
-            <a href="coolpics/about.html">About</a>
-            <a href="coolpics/contact.html">Contact</a>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="toggleMenu()">Menu</button>
+            <div id="dropdownMenu" class="dropdown-content">
+                <a href="coolpics/index.html">Home</a>
+                <a href="coolpics/people.html">People</a>
+                <a href="coolpics/places.html">Places</a>
+                <a href="coolpics/about.html">About</a>
+                <a href="coolpics/contact.html">Contact</a>
+            </div>
         </div>
     </header>
     <main>
@@ -54,7 +56,7 @@
         </section>
     </main>
     <footer>
-        <p>&copy2023 Not a real site :)</p>
+        <p>&copy; 2023 Not a real site :)</p>
     </footer>
 </body>
 </html>
