@@ -78,13 +78,13 @@ img {
 .show {
     display: flex;
 }
-@media (min-width: 700px) {
+@media (min-width: 900px) {
     .gallery {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
 }
-@media (min-width: 1000px) {
+@media (min-width: 1600px) {
     .dropdown {
         width: 100%;
         display: flex;
