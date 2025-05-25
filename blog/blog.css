@@ -1,0 +1,102 @@
+body {
+  font-family: Georgia, serif;
+  margin: 0;
+  padding: 0;
+  background: #fffaf7;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 1em;
+  border-bottom: 1px solid #EFC69B;
+  font-size: 2em;
+  color: #3e1f47;
+}
+
+/* Navigation Bar */
+nav {
+  text-align: right;
+  padding: 0.5em 1em;
+  border-bottom: 1px solid #EFC69B;
+  background-color: #fffaf7;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #a43e4a;
+  font-weight: bold;
+}
+
+/* Layout Container */
+.container {
+  display: flex;
+  padding: 2em;
+}
+
+/* Reviews Section */
+.reviews {
+  flex: 3;
+}
+
+/* Each Review */
+.review {
+  display: flex;
+  margin-bottom: 2em;
+  border-bottom: 1px solid #EFC69B;
+  padding-bottom: 1em;
+}
+
+/* Info Box */
+.review-info {
+  width: 100px;
+  margin-right: 1em;
+  font-size: 0.9em;
+  text-align: right;
+  color: #4e342e;
+}
+
+.review-info div {
+  margin-bottom: 0.5em;
+}
+
+/* Review Content */
+.review-content {
+  flex: 1;
+}
+
+.review-date {
+  font-size: 0.9em;
+  color: #6d4c41;
+  margin: 0 0 0.3em 0;
+}
+
+.review-content h2 {
+  margin: 0;
+  color: #8b0033;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.review-content img {
+  max-width: 120px;
+  margin: 0.5em 0;
+}
+
+/* Placeholder for Filters */
+.filters-placeholder {
+  flex: 1;
+  padding: 1.5em;
+  margin-left: 2em;
+  border: 2px solid #EFC69B;
+  border-radius: 8px;
+  background-color: #fff5ec;
+  min-height: 200px;
+  color: #5e5e5e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  box-shadow: 0 0 10px rgba(239, 198, 155, 0.3);
+}
