@@ -17,14 +17,12 @@ main {
   padding: 0.5em;
 }
 
-/* Style the select arrow for Safari */
 select::-webkit-inner-spin-button,
 select::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* Style the select arrow for other browsers */
 select {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -32,7 +30,7 @@ select {
 }
 
 .hide {
-  display: none; /* Initially hide the credit card and PayPal inputs and labels */
+  display: none;
 }
 
 form {
@@ -87,7 +85,6 @@ header h1 {
   font-weight: bold;
 }
 
-/* NEW: spacing between payment method and conditional fields */
 #creditCardSection,
 #paypalSection {
   margin-top: 1rem;

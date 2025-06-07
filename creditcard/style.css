@@ -1,0 +1,177 @@
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  margin: 0;
+}
+
+form {
+  width: 400px;
+}
+
+.card-stack {
+  position: relative;
+  width: 400px;
+  height: 250px;
+}
+
+.back, .front {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.back {
+  position: absolute;
+  top: 40px;
+  left: 100px;
+  background-color: #d3d3d3;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  grid-template-rows: 40px 1fr 40px;
+  gap: 10px;
+}
+
+.back::before {
+  content: "";
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  background-color: #000;
+  border-radius: 5px 5px 0 0;
+}
+
+.cvc-back {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  align-self: end;
+  justify-self: end;
+  width: 100px;
+}
+
+.cvc-back label {
+  font-size: 15px;
+  display: block;
+  margin-bottom: 4px;
+  margin-left: 10px;
+}
+
+.cvc-back input {
+  width: 60px;
+  padding: 6px 8px;
+  font-size: 17px;
+  letter-spacing: 2px;
+  display: block;
+  margin-left: 10px;
+}
+
+.front {
+  position: absolute;
+  top: 0;
+  left: -30px;
+  background-color: #d3d3d3;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.25);
+  z-index: 1;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr;
+  gap: 15px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.card-number-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-number-field label {
+  margin-bottom: 5px;
+  padding-left: 10px;
+}
+
+.card-number-field input {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  padding: 8px 12px;
+}
+
+.holder-expiration {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  align-items: center;
+}
+
+.card-holder-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-holder-field label {
+  margin-bottom: 4px;
+  padding-left: 10px;
+}
+
+.card-holder-field input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.expiration-field {
+  flex: 0 0 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.expiration-field label {
+  margin-bottom: 4px;
+  padding-left: 10px;
+}
+
+.expiration-inputs {
+  display: flex;
+  gap: 15px;
+}
+
+.expiration-inputs input {
+  width: 40px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.submit-container {
+  width: 400px;
+  margin-top: 60px;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 100px; /* align with shifted card */
+}
+
+button {
+  padding: 10px 20px;
+  background: #d3d3d3;
+  border: 1px solid black;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
