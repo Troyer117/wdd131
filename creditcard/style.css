@@ -77,7 +77,6 @@ form {
   background-color: #d3d3d3;
   box-shadow: 2px 4px 10px rgba(0,0,0,0.25);
   z-index: 1;
-
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto 1fr;
@@ -164,7 +163,7 @@ form {
   margin-top: 60px;
   display: flex;
   justify-content: flex-end;
-  margin-left: 100px; /* align with shifted card */
+  margin-left: 100px;
 }
 
 button {
