@@ -1,47 +1,69 @@
 body {
-  font-family: Palatino Linotype, sans-serif;
+  font-family: 'Palatino Linotype', sans-serif;
   background: #f0f4f8;
+  margin: 0;
+  padding: 0;
 }
+
 .card {
   background: #313131;
   border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.9);
-  width: 400px; 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.9);
+  max-width: 400px;
   margin: 100px auto;
+  overflow: hidden;
 }
-.image{
-  width: 400px;
-  border-radius: 15px 15px 0 0;
-  }
+
+.image {
+  width: 100%;
+  display: block;
+}
+
 .name {
   font-size: 1.5em;
   font-weight: bold;
   color: white;
-  padding: 15px 0 15px 35px;
+  padding: 15px 35px;
   background-color: #5d747b;
+  margin: 0;
 }
+
 .stats {
   margin: 10px 15px 7px 35px;
   text-align: left;
-}
-.stats p {
-  margin: 5px 0;
   color: #f0f4f8;
 }
+
+.stats p {
+  margin: 5px 0;
+}
+
 .buttons {
   text-align: center;
+  padding-bottom: 10px;
 }
+
 button {
-  padding: 8px 12px;
-  margin: 20px;
+  padding: 10px 16px;
+  margin: 15px 10px;
   border: none;
   border-radius: 8px;
   background-color: #5d747b;
   color: white;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.5s ease;
+  transition: background-color 0.3s ease;
 }
-button:hover {
+
+button:hover,
+button:focus {
   background-color: #58605a;
+  outline: none;
+}
+
+#log {
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  padding-bottom: 20px;
 }
