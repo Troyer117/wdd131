@@ -4,53 +4,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>RecipeBook</title>
+  <meta name="description" content="Discover delicious recipes with RecipeBook." />
+  <meta name="author" content="Your Name or Company" />
+  <meta property="og:title" content="RecipeBook" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Discover delicious recipes with RecipeBook." />
+  <meta property="og:image" content="./images/apple-crisp.jpg" />
+  <meta property="og:url" content="https://yourdomain.com/recipebook" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="recipes.css" />
   <script src="recipes.js" defer></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Architects+Daughter&display=swap"
-    rel="stylesheet"
-  />
 </head>
+
 <body>
   <header>
     <img src="./images/recipe-book.png" alt="Recipe Book Logo" class="logo" />
     <h1>RecipeBook</h1>
   </header>
 
-  <section class="search-bar">
-    <input type="text" placeholder="Find a recipe" />
-    <button>
-      <img src="./images/search.svg" alt="Search" />
+  <form class="search-bar" role="search" aria-label="Search recipes">
+    <input type="text" placeholder="Find a recipe" aria-label="Search recipes" />
+    <button type="submit" aria-label="Search">
+      <img src="./images/search.svg" alt="" aria-hidden="true" />
     </button>
-  </section>
+  </form>
 
   <div class="divider"></div>
 
   <main>
-    <div class="card">
+    <article class="card" role="region" aria-labelledby="recipe-title">
       <div class="image-container">
-        <div class="image-wrapper">
-          <img src="./images/apple-crisp.jpg" alt="Apple Crisp" />
-        </div>
+        <img src="./images/apple-crisp.jpg" alt="Apple Crisp" />
       </div>
       <div class="info">
         <span class="tag">dessert</span>
-        <h2>Apple Crisp</h2>
-        <div class="stars">★★★★☆</div>
-        <p class="description">
-          This apple crisp recipe is a simple yet delicious fall dessert that's great served warm with vanilla ice cream.
-        </p>
+        <h2 id="recipe-title">Apple Crisp</h2>
+        <span class="rating" role="img" aria-label="Rating: 4 out of 5 stars">
+          <span aria-hidden="true" class="icon-star">⭐</span>
+          <span aria-hidden="true" class="icon-star">⭐</span>
+          <span aria-hidden="true" class="icon-star">⭐</span>
+          <span aria-hidden="true" class="icon-star">⭐</span>
+          <span aria-hidden="true" class="icon-star-empty">☆</span>
+        </span>
+        <p class="description">This apple crisp recipe is a simple yet delicious fall dessert that's great served warm with vanilla ice cream.</p>
+      </div>
+    </article>
+
+    <div class="card-footer" aria-label="Recipe icon attribution and social media links">
+      <p class="credits">
+        <a href="https://www.flaticon.com/free-icons/recipe" title="recipe icons" target="_blank" rel="noopener noreferrer">
+          Recipe icons created by Freepik - Flaticon
+        </a>
+      </p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><img src="./images/instagram_icon.svg" alt="Instagram icon" /></a>
+        <a href="#" aria-label="YouTube"><img src="./images/youtube_icon.svg" alt="YouTube icon" /></a>
+        <a href="#" aria-label="Pinterest"><img src="./images/pinterest_icon.svg" alt="Pinterest icon" /></a>
       </div>
     </div>
   </main>
 
-  <footer>
-    <div class="socials">
-      <img src="./images/youtube_icon.svg" alt="YouTube" />
-      <img src="./images/instagram_icon.svg" alt="Instagram" />
-      <img src="./images/pinterest_icon.svg" alt="Pinterest" />
-    </div>
-    <p class="credits">Recipe icons created by Freepik - Flaticon</p>
-  </footer>
+  <footer></footer>
 </body>
 </html>
