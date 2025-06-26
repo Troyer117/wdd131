@@ -113,8 +113,8 @@ header h1 {
 }
 
 .divider {
-  width: 950px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 950px;
   height: 2px;
   background-color: rgba(0,0,0,0.2);
   margin-bottom: 1rem;
@@ -127,7 +127,7 @@ main {
   margin-bottom: 2rem;
 }
 
-.card {
+.recipe {
   background: white;
   border-radius: 8px;
   border: 1px solid black;
@@ -138,35 +138,35 @@ main {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.image-container {
-  width: 100%;
-  overflow: hidden;
-}
-
-.image-container img {
-  display: block;
+.recipe img {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
-.info {
+figcaption {
   padding: 1rem;
   font-family: var(--primary-font);
 }
 
-.tag {
-  display: inline-block;
+.recipe__tags {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.recipe__tags li {
   background: #eee;
   border: 1px solid #aaa;
   padding: 0.25rem 0.5rem;
   border-radius: 3px;
   font-size: 0.9rem;
-  margin-bottom: 0.5rem;
   text-transform: lowercase;
 }
 
-.info h2 {
+.recipe h2 {
   font-family: var(--secondary-font);
   font-weight: 700;
   font-size: 2rem;
@@ -174,24 +174,25 @@ main {
   margin: 0 0 0.25rem 0;
 }
 
-.description {
-  display: none;
-  margin-top: 0.5rem;
-  color: var(--text-dark);
-}
-
-.rating {
-  color: #B8860B;
-  font-size: 1.5rem;
+.recipe__ratings {
+  font-size: 1rem;       /* Normal text size */
+  color: #B8860B;        /* Gold star color */
   margin: 0.25rem 0;
+  font-weight: normal;   /* Not bold like a heading */
 }
 
 .icon-star {
-  color: #B8860B;
+  color: #804000; /* a darker, fully opaque brownish gold */
+  opacity: 1
 }
 
 .icon-star-empty {
   color: #666;
+}
+
+.recipe__description {
+  margin-top: 0.5rem;
+  color: var(--text-dark);
 }
 
 .card-footer {
@@ -235,23 +236,15 @@ main {
 }
 
 @media (min-width: 600px) {
-  .description {
-    display: block;
-  }
-  .card {
+  .recipe {
     flex-direction: row;
     height: 360px;
   }
-  .image-container {
+  .recipe img {
     width: 400px;
     height: 100%;
   }
-  .image-container img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-  .info {
+  figcaption {
     flex: 1;
     padding: 2rem 1.5rem;
     overflow-y: auto;
@@ -264,6 +257,7 @@ main {
     margin: 0 auto;
   }
   .divider {
-    width: 960px;
+    max-width: 960px;
+    width: 100%;
   }
 }

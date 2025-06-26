@@ -1,68 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RecipeBook</title>
-  <meta name="description" content="Discover delicious recipes with RecipeBook." />
-  <meta name="author" content="Your Name or Company" />
-  <meta property="og:title" content="RecipeBook" />
-  <meta property="og:type" content="website" />
-  <meta property="og:description" content="Discover delicious recipes with RecipeBook." />
-  <meta property="og:image" content="./images/apple-crisp.jpg" />
-  <meta property="og:url" content="https://yourdomain.com/recipebook" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="recipes.css" />
-  <script src="recipes.js" defer></script>
+  <meta name="description" content="Discover delicious recipes with RecipeBook.">
+  <meta name="author" content="Troy Justesen">
+  <meta property="og:title" content="RecipeBook">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Discover delicious recipes with RecipeBook.">
+  <meta property="og:image" content="./images/apple-crisp.jpg">
+  <meta property="og:url" content="https://yourdomain.com/recipebook">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="recipes.css">
+  <script src="recipes.mjs" defer></script>
 </head>
 <body>
   <header>
-    <img src="./images/recipe-book.png" alt="Recipe Book Logo" class="logo" />
+    <img src="./images/recipe-book.png" alt="Recipe Book Logo" class="logo">
     <h1>RecipeBook</h1>
   </header>
 
   <form class="search-bar" role="search" aria-label="Search recipes">
-    <input type="text" placeholder="Find a recipe" aria-label="Search recipes" />
+    <input type="text" placeholder="Find a recipe" aria-label="Search recipes">
     <button type="submit" aria-label="Search">
-      <img src="./images/search.svg" alt="" aria-hidden="true" />
+      <img src="./images/search.svg" alt="" aria-hidden="true">
     </button>
   </form>
 
   <div class="divider"></div>
 
-  <main>
-    <article class="card" role="region" aria-labelledby="recipe-title">
-      <div class="image-container">
-        <img src="./images/apple-crisp.jpg" alt="Apple Crisp" />
-      </div>
-      <div class="info">
-        <span class="tag">dessert</span>
-        <h2 id="recipe-title">Apple Crisp</h2>
-        <span class="rating" role="img" aria-label="Rating: 4 out of 5 stars">
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star">⭐</span>
-          <span aria-hidden="true" class="icon-star-empty">☆</span>
-        </span>
-        <p class="description">This apple crisp recipe is a simple yet delicious fall dessert that's great served warm with vanilla ice cream.</p>
-      </div>
-    </article>
+  <main></main>
 
-    <div class="card-footer" aria-label="Recipe icon attribution and social media links">
-      <p class="credits">
-        <a href="https://www.flaticon.com/free-icons/recipe" title="recipe icons" target="_blank" rel="noopener noreferrer">
-          Recipe icons created by Freepik - Flaticon
-        </a>
-      </p>
-      <div class="socials">
-        <a href="#" aria-label="Instagram"><img src="./images/instagram_icon.svg" alt="Instagram icon" aria-hidden="true" /></a>
-        <a href="#" aria-label="YouTube"><img src="./images/youtube_icon.svg" alt="YouTube icon" aria-hidden="true" /></a>
-        <a href="#" aria-label="Pinterest"><img src="./images/pinterest_icon.svg" alt="Pinterest icon" aria-hidden="true" /></a>
-      </div>
+  <footer class="card-footer" aria-label="Recipe icon attribution and social media links">
+    <p class="credits">
+      <a href="https://www.flaticon.com/free-icons/recipe" title="recipe icons" target="_blank" rel="noopener noreferrer">
+        Recipe icons created by Freepik - Flaticon
+      </a>
+    </p>
+    <div class="socials">
+      <a href="#" aria-label="Instagram">
+        <img src="./images/instagram_icon.svg" alt="Instagram icon" aria-hidden="true">
+      </a>
+      <a href="#" aria-label="YouTube">
+        <img src="./images/youtube_icon.svg" alt="YouTube icon" aria-hidden="true">
+      </a>
+      <a href="#" aria-label="Pinterest">
+        <img src="./images/pinterest_icon.svg" alt="Pinterest icon" aria-hidden="true">
+      </a>
     </div>
-  </main>
+  </footer>
 </body>
 </html>
