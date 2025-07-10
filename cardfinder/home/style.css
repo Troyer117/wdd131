@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+
+/* BASE STYLES */
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2em;
+  font-size: 18px;
+  font-family: Merriweather, Helvetica, sans-serif;
+  color: #3C81B3;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Cinzel", serif;
+  color: #3C81B3;
+}
+
+h2 { text-align: center; }
+
+p { padding: 1em; }
+
+/* HEADER & NAV */
+header {
+  padding: 1em;
+  text-align: center;
+  background-color: #3C81B3;
+  color: white;
+}
+
+header h1 { color: white; }
+
+nav {
+  background-color: #80355B;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+nav a:hover {
+  color: #80355B;
+  background-color: white;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 3em;
+  padding: 2em;
+  background-color: #3C81B3;
+  color: white;
+  text-align: center;
+}
+
+footer nav { background: none; }
+
+footer nav a { color: white; }
+
+/* HR */
+hr {
+  height: 3px;
+  margin: 35px 0;
+  background: #D04735;
+  border: none;
+}
+
+/* HERO SECTION */
+.hero {
+  text-align: center;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 1em auto;
+}
+
+/* CAROUSEL */
+.carousel {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-container button {
+  background: #3C81B3;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  margin: 0 1em;
+  cursor: pointer;
+  padding: 0.5em 1em;
+}
+
+.carousel p { margin-top: 1em; }
