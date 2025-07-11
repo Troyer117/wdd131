@@ -1,14 +1,14 @@
 const carouselImages = [
-  { src: "/cardfinder/images/blue-eyes_white_dragon.jpg", alt: "Blue-Eyes White Dragon" },
-  { src: "/cardfinder/images/cyber_dragon.jpg", alt: "Cyber Dragon" },
-  { src: "/cardfinder/images/dark_magician.jpg", alt: "Dark Magician" },
-  { src: "/cardfinder/images/decode_talker.jpg", alt: "Decode Talker" },
-  { src: "/cardfinder/images/gagagaga_magicain.jpg", alt: "Gagagaga Magician" },
-  { src: "/cardfinder/images/mirror_force.jpg", alt: "Mirror Force" },
-  { src: "/cardfinder/images/obelisk_the_tormentor.jpg", alt: "Obelisk the Tormentor" },
-  { src: "/cardfinder/images/odd-eyes_pendulum_dragon.jpg", alt: "Odd-Eyes Pendulum Dragon" },
-  { src: "/cardfinder/images/red-eyes_b._dragon.jpg", alt: "Red-Eyes Black Dragon" },
-  { src: "/cardfinder/images/slifer_the_sky_dragon.jpg", alt: "Slifer the Sky Dragon" }
+  { src: "../images/blue-eyes_white_dragon.jpg", alt: "Blue-Eyes White Dragon" },
+  { src: "../images/cyber_dragon.jpg", alt: "Cyber Dragon" },
+  { src: "../images/dark_magician.jpg", alt: "Dark Magician" },
+  { src: "../images/decode_talker.jpg", alt: "Decode Talker" },
+  { src: "../images/gagagaga_magicain.jpg", alt: "Gagagaga Magician" },
+  { src: "../images/mirror_force.jpg", alt: "Mirror Force" },
+  { src: "../images/obelisk_the_tormentor.jpg", alt: "Obelisk the Tormentor" },
+  { src: "../images/odd-eyes_pendulum_dragon.jpg", alt: "Odd-Eyes Pendulum Dragon" },
+  { src: "../images/red-eyes_b._dragon.jpg", alt: "Red-Eyes Black Dragon" },
+  { src: "../images/slifer_the_sky_dragon.jpg", alt: "Slifer the Sky Dragon" }
 ];
 
 let currentIndex = 0;
