@@ -1,57 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Card Finder - Home</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Card Finder - Home</title>
+  <meta name="description" content="Easily search, explore, and save your favorite Yu-Gi-Oh cards with Card Finder. Build your library and start dueling!" />
+  <meta name="author" content="Your Name or Team" />
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+  <meta property="og:title" content="Card Finder" />
+  <meta property="og:description" content="Search and collect Yu-Gi-Oh cards with ease." />
+  <meta property="og:image" content="../images/Logo.jpeg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourwebsite.com" />
+  <script src="main.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="logo-title">
-            <img src="images/logo.jpeg" alt="Card Finder Logo">
-            <h1>Card Finder</h1>
+  <header>
+    <div class="logo-title">
+      <img class="logo-img" src="../images/Logo.jpeg" alt="Card Finder Site Logo" loading="lazy" />
+      <h1>Card Finder</h1>
+    </div>
+    <nav role="navigation">
+      <a href="index.html">Home</a>
+      <a href="../card-search/card_search.html">Card Search</a>
+      <a href="../library/library.html">Library</a>
+      <a href="https://www.yugioh-card.com/en/">YU-GI-OH Website</a>
+      <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChsSEwinzfP0prOOAxWYh-4BHcTMJ3wYACICCAEQABoCZHo&co=1&gclid=CjwKCAjwyb3DBhBlEiwAqZLe5HHKgp5_RrWq885d0iTK8D014Go2RqiV-jjnLt6E9C8vRskZG-GhMBoCjxAQAvD_BwE&ohost=www.google.com&cid=CAESVeD26PA5EGyT0zZcrKLmguY52GJ2nIPoGNLEanRg-W9tl_hYZhYtz6a_uOEK0ZfiqOHPh5TPtgNaJZ1ZeiLluJmcWPLxQ31Q7ppUO3RkPd56_SkBm8E&category=acrcp_v1_40&sig=AOD64_2lKYZ3Glq4BLp94s3KttEgALqq1w&q&adurl&ved=2ahUKEwi52-70prOOAxWjIUQIHayOJa4Q0Qx6BAgXEAE">Buy Cards</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p>
+        Welcome to the easiest way to search, explore, and save your favorite Yu-Gi-Oh trading cards. Whether you’re a competitive duelist or a casual collector, this site makes managing your card collection simple and fun. Press on Card Search up top where you will be able to search up and see all the cards in Yu-Gi-Oh. Then when you see one you want, you can save it to the Library where all of your cards will be stored. You can arrange, find ones to buy later (where you can press on the links above to go to the main Yugioh website or to one of the main sites to buy cards), or anything else you want to do with them. Below are some of the cards that you can discover for yourself.
+      </p>
+    </section>
+
+    <section class="carousel">
+      <div class="carousel-container">
+        <button aria-label="Previous">&#8592;</button>
+        <div class="carousel-image-wrapper">
+          <img src="../images/blue-eyes_white_dragon.jpg" alt="Blue-Eyes White Dragon Yu-Gi-Oh Card" loading="lazy" />
+          <h2 class="card-name">Blue-Eyes White Dragon</h2>
         </div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="cards.html">Card Search</a>
-            <a href="library.html">Library</a>
-            <a href="https://www.yugioh-card.com/en/">YU-GI-OH Website</a>
-            <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChsSEwinzfP0prOOAxWYh-4BHcTMJ3wYACICCAEQABoCZHo&co=1&gclid=CjwKCAjwyb3DBhBlEiwAqZLe5HHKgp5_RrWq885d0iTK8D014Go2RqiV-jjnLt6E9C8vRskZG-GhMBoCjxAQAvD_BwE&ohost=www.google.com&cid=CAESVeD26PA5EGyT0zZcrKLmguY52GJ2nIPoGNLEanRg-W9tl_hYZhYtz6a_uOEK0ZfiqOHPh5TPtgNaJZ1ZeiLluJmcWPLxQ31Q7ppUO3RkPd56_SkBm8E&category=acrcp_v1_40&sig=AOD64_2lKYZ3Glq4BLp94s3KttEgALqq1w&q&adurl&ved=2ahUKEwi52-70prOOAxWjIUQIHayOJa4Q0Qx6BAgXEAE">Buy Cards</a>
-        </nav>
-    </header>
+        <button aria-label="Next">&#8594;</button>
+      </div>
+      <h3>So what are you waiting for, get to dueling or collecting!</h3>
+    </section>
+  </main>
 
-    <main>
-        <section class="hero">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Yugioh_Card_Back.jpg/220px-Yugioh_Card_Back.jpg" alt="Test Card" style="border:2px solid green;">
-            <p>
-                Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at vix ad
-                putent delicata delicata usu. Vidit dissentiet eos eu eum an brute copiosae hendrerit.
-            </p>
-        </section>
-
-        <section class="carousel">
-            <div class="carousel-container">
-                <button aria-label="Previous">&#8592;</button>
-                <img src="images/carousel-placeholder.png" alt="Carousel Image">
-                <button aria-label="Next">&#8594;</button>
-            </div>
-            <p>
-                Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae lege.
-            </p>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-logo">
-            <img src="images/logo.png" alt="Card Finder Logo">
-        </div>
-        <nav>
-            <a href="#">Link one</a>
-            <a href="#">Link two</a>
-            <a href="#">Link three</a>
-            <a href="#">Link four</a>
-        </nav>
-    </footer>
+  <footer>
+    <div class="footer-logo">
+      <img src="../images/Logo.jpeg" alt="Card Finder Site Logo" loading="lazy" />
+    </div>
+    <nav role="navigation">
+      <a href="../card-search/card_search.html">Card Search</a>
+      <a href="../library/library.html">Library</a>
+      <a href="https://www.yugioh-card.com/en/">YU-GI-OH Website</a>
+      <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChsSEwinzfP0prOOAxWYh-4BHcTMJ3wYACICCAEQABoCZHo&co=1&gclid=CjwKCAjwyb3DBhBlEiwAqZLe5HHKgp5_RrWq885d0iTK8D014Go2RqiV-jjnLt6E9C8vRskZG-GhMBoCjxAQAvD_BwE&ohost=www.google.com&cid=CAESVeD26PA5EGyT0zZcrKLmguY52GJ2nIPoGNLEanRg-W9tl_hYZhYtz6a_uOEK0ZfiqOHPh5TPtgNaJZ1ZeiLluJmcWPLxQ31Q7ppUO3RkPd56_SkBm8E&category=acrcp_v1_40&sig=AOD64_2lKYZ3Glq4BLp94s3KttEgALqq1w&q&adurl&ved=2ahUKEwi52-70prOOAxWjIUQIHayOJa4Q0Qx6BAgXEAE">Buy Cards</a>
+    </nav>
+  </footer>
 </body>
 </html>
