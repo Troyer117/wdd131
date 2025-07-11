@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
 
 body {
-  margin: 0 auto;
+  margin: 0;
   padding: 2em;
   font-size: 18px;
   font-family: Merriweather, Helvetica, sans-serif;
@@ -31,7 +31,6 @@ header {
   text-align: center;
   background-color: #3C81B3;
   color: white;
-  min-height: 120px;
 }
 
 header h1 {
@@ -43,7 +42,6 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 nav a {
@@ -65,9 +63,8 @@ footer {
   color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
   gap: 2em;
   text-align: center;
 }
@@ -76,8 +73,6 @@ footer {
   aspect-ratio: 1 / 1;
   width: 200px;
   object-fit: contain;
-  display: block;
-  margin: 0 auto;
 }
 
 footer nav {
@@ -86,7 +81,6 @@ footer nav {
   gap: 1em;
   padding: 0.5em 1em;
   border-radius: 6px;
-  margin-top: 1em;
 }
 
 footer nav a {
@@ -106,7 +100,7 @@ footer nav a:hover {
 .hero {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto;
+  margin: auto;
   padding: 2em;
   font-size: 1.5rem;
 }
@@ -120,27 +114,21 @@ footer nav a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 1.5em;
+  gap: 2em;
   padding: 0 1em;
-  max-width: 100%;
-  margin: 0 auto;
-  box-sizing: border-box;
 }
 
 .carousel-image-wrapper {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 2 / 3;
   position: relative;
   display: inline-block;
-  flex-shrink: 0;
   max-width: 600px;
 }
 
 .carousel-image-wrapper img {
   width: 100%;
   height: 100%;
-  display: block;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -158,23 +146,21 @@ footer nav a:hover {
   font-family: "Cinzel", serif;
   font-weight: 600;
   border-radius: 8px 8px 0 0;
-  box-sizing: border-box;
 }
 
 .carousel-container button {
   font-size: 2.5rem;
-  padding: 0.4em 1em;
+  padding: 0.5em 1em;
   border-radius: 6px;
   cursor: pointer;
   background-color: #3C81B3;
   color: white;
   border: none;
-  flex-shrink: 0;
   transition: background-color 0.3s ease;
 }
 
 .carousel-container button:hover {
-  background-color: #2e6a93;
+  background-color: #2E6A93;
 }
 
 .logo-img {
@@ -182,7 +168,7 @@ footer nav a:hover {
   width: 200px;
   object-fit: contain;
   display: block;
-  margin: 0 auto;
+  margin: auto;
 }
 
 @media (min-width: 600px) {
@@ -196,19 +182,13 @@ footer nav a:hover {
 
   footer {
     flex-direction: row;
-  }
-
-  footer nav {
-    margin-top: 0;
+    flex-wrap: wrap;
   }
 
   .carousel-container {
     flex-direction: row;
     justify-content: center;
-    gap: 2em;
-    padding: 0 1em;
     max-width: 1100px;
-    margin: 0 auto;
   }
 
   .carousel-image-wrapper {
@@ -238,16 +218,13 @@ footer nav a:hover {
 
 @media (min-width: 1000px) {
   .carousel-container {
-    padding: 0;
     gap: 3em;
-    width: 100%;
-    margin: 0 auto;
-    flex-direction: row;
+    margin: auto;
   }
 
   .carousel-image-wrapper {
-    width: 100%;
     max-width: 550px;
+    width: 100%;
   }
 
   .carousel-container button {
