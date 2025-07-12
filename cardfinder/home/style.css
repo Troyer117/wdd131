@@ -71,10 +71,11 @@ nav {
   color: white;
   font-size: 3rem;
   font-family: "Cinzel", serif;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 0.5em 1em;
-  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.75em 0.3em;
+  border-radius: 8px 8px;
   pointer-events: none;
+  text-align: center;
 }
 
 nav a {
