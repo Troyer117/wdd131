@@ -3,7 +3,7 @@ const carouselImages = [
   { src: "../images/cyber_dragon.jpg", alt: "Cyber Dragon" },
   { src: "../images/dark_magician.jpg", alt: "Dark Magician" },
   { src: "../images/decode_talker.jpg", alt: "Decode Talker" },
-  { src: "../images/gagagaga_magicain.jpg", alt: "Gagagaga Magician" },
+  { src: "../images/gagagaga_magician.jpg", alt: "Gagagaga Magician" },
   { src: "../images/mirror_force.jpg", alt: "Mirror Force" },
   { src: "../images/obelisk_the_tormentor.jpg", alt: "Obelisk the Tormentor" },
   { src: "../images/odd-eyes_pendulum_dragon.jpg", alt: "Odd-Eyes Pendulum Dragon" },
@@ -21,7 +21,7 @@ const nextButton = document.querySelector(".carousel-container button[aria-label
 function updateCarousel() {
   const currentCard = carouselImages[currentIndex];
   carouselImage.src = currentCard.src;
-  carouselImage.alt = "";
+  carouselImage.alt = currentCard.alt;
   carouselName.textContent = currentCard.alt;
 }
 

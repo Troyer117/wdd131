@@ -2,23 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Card Finder - Search Cards</title>
-  <meta name="description" content="Easily search, explore, and save your favorite Yu-Gi-Oh cards with Card Finder.">
-  <meta name="author" content="Your Name or Team">
-  <link rel="icon" href="../images/Logo.jpeg" type="image/x-icon">
-  <link rel="stylesheet" href="card_search.css">
-  <meta property="og:title" content="Card Finder">
-  <meta property="og:description" content="Search and collect Yu-Gi-Oh cards with ease.">
-  <meta property="og:image" content="../images/Logo.jpeg">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://troyer117.github.io/wdd131/cardfinder/card-search/">
+  <meta name="description" content="Easily search, explore, and save your favorite Yu-Gi-Oh cards with Card Finder." />
+  <meta name="author" content="Troy Justesen" />
+  <link rel="icon" href="../images/Logo.jpeg" type="image/x-icon" />
+  <link rel="stylesheet" href="card_search.css" />
+  <meta property="og:title" content="Card Finder" />
+  <meta property="og:description" content="Search and collect Yu-Gi-Oh cards with ease." />
+  <meta property="og:image" content="../images/Logo.jpeg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://troyer117.github.io/wdd131/cardfinder/card-search/" />
   <script src="card_search.js" defer></script>
 </head>
 <body>
   <header>
     <div class="logo-title">
-      <img class="logo-img" src="../images/Logo.jpeg" alt="Card Finder Site Logo" loading="lazy">
+      <img class="logo-img" src="../images/Logo.jpeg" alt="Card Finder Site Logo" loading="lazy" />
       <h1>Card Finder</h1>
     </div>
     <nav>
@@ -35,37 +35,152 @@
       <div class="search-box">
         <h2>Find Yu-Gi-Oh cards by name, type, attribute, or feature.</h2>
         <form id="search-form">
-          <div class="input-container">
-            <input type="text" placeholder="Type here...">
+          <div class="filter-dropdown">
+            <button type="button" class="toggle-main" aria-expanded="false">All ▼</button>
+            <div class="filter-menu hidden">
+
+              <button id="clear-filters" type="button" style="margin-bottom:1em; width:100%; padding:0.6em; background:#D04735; color:#fff; border:none; border-radius:6px; cursor:pointer;">
+                Clear All Filters
+              </button>
+
+              <div class="filter-category" data-category="exactMatch">
+                <label><input type="checkbox" name="exactMatch" value="true" /> Exact Match</label>
+              </div>
+
+              <div class="filter-category" data-category="type">
+                <button type="button" class="toggle-btn" aria-expanded="false">Type ▼</button>
+                <div class="filter-options hidden">
+                  <label><input type="checkbox" value="MONSTER" /> Monster</label>
+                  <label><input type="checkbox" value="SPELL" /> Spell</label>
+                  <label><input type="checkbox" value="TRAP" /> Trap</label>
+                </div>
+              </div>
+
+              <div class="filter-category" data-category="attribute">
+                <button type="button" class="toggle-btn" aria-expanded="false">Attribute ▼</button>
+                <div class="filter-options hidden">
+                  <label><input type="checkbox" value="FIRE" /> Fire</label>
+                  <label><input type="checkbox" value="WATER" /> Water</label>
+                  <label><input type="checkbox" value="EARTH" /> Earth</label>
+                  <label><input type="checkbox" value="WIND" /> Wind</label>
+                  <label><input type="checkbox" value="LIGHT" /> Light</label>
+                  <label><input type="checkbox" value="DARK" /> Dark</label>
+                  <label><input type="checkbox" value="DIVINE" /> Divine</label>
+                </div>
+              </div>
+
+              <div class="filter-category" data-category="subtype">
+                <button type="button" class="toggle-btn" aria-expanded="false">Subtype ▼</button>
+                <div class="filter-options hidden">
+                  <label><input type="checkbox" value="NORMAL" /> Normal</label>
+                  <label><input type="checkbox" value="EFFECT" /> Effect</label>
+                  <label><input type="checkbox" value="FLIP-EFFECT" /> Flip-Effect</label>
+                  <label><input type="checkbox" value="FUSION" /> Fusion</label>
+                  <label><input type="checkbox" value="RITUAL" /> Ritual</label>
+                  <label><input type="checkbox" value="SYNCHRO" /> Synchro</label>
+                  <label><input type="checkbox" value="XYZ" /> XYZ</label>
+                  <label><input type="checkbox" value="PENDULUM" /> Pendulum</label>
+                  <label><input type="checkbox" value="LINK" /> Link</label>
+                  <label><input type="checkbox" value="GEMINI" /> Gemini</label>
+                  <label><input type="checkbox" value="SPIRIT" /> Spirit</label>
+                  <label><input type="checkbox" value="TUNER" /> Tuner</label>
+                  <label><input type="checkbox" value="UNION" /> Union</label>
+                </div>
+              </div>
+
+              <div class="filter-category" data-category="monsterType">
+                <button type="button" class="toggle-btn" aria-expanded="false">Monster Type ▼</button>
+                <div class="filter-options hidden">
+                  <label><input type="checkbox" value="WARRIOR" /> Warrior</label>
+                  <label><input type="checkbox" value="CYBERSE" /> Cyberse</label>
+                  <label><input type="checkbox" value="SPELLCASTER" /> Spellcaster</label>
+                  <label><input type="checkbox" value="DRAGON" /> Dragon</label>
+                  <label><input type="checkbox" value="FIEND" /> Fiend</label>
+                  <label><input type="checkbox" value="FAIRY" /> Fairy</label>
+                  <label><input type="checkbox" value="BEAST" /> Beast</label>
+                  <label><input type="checkbox" value="BEAST-WARRIOR" /> Beast-Warrior</label>
+                  <label><input type="checkbox" value="INSECT" /> Insect</label>
+                  <label><input type="checkbox" value="FISH" /> Fish</label>
+                  <label><input type="checkbox" value="SEA SERPENT" /> Sea Serpent</label>
+                  <label><input type="checkbox" value="THUNDER" /> Thunder</label>
+                  <label><input type="checkbox" value="MACHINE" /> Machine</label>
+                  <label><input type="checkbox" value="PLANT" /> Plant</label>
+                  <label><input type="checkbox" value="ROCK" /> Rock</label>
+                  <label><input type="checkbox" value="ZOMBIE" /> Zombie</label>
+                  <label><input type="checkbox" value="PSYCHIC" /> Psychic</label>
+                  <label><input type="checkbox" value="DIVINE-BEAST" /> Divine-Beast</label>
+                  <label><input type="checkbox" value="WYRM" /> Wyrm</label>
+                  <label><input type="checkbox" value="TOON" /> Toon</label>
+                </div>
+              </div>
+
+              <div class="filter-category" data-category="level">
+                <button type="button" class="toggle-btn" aria-expanded="false">Level/Rank/Link Rating ▼</button>
+                <div class="filter-options hidden">
+                  <label>Level/Rank Min: <input type="number" id="level-min" min="1" max="12" value="1" oninput="validity.valid||(value='1')" /></label>
+                  <label>Max: <input type="number" id="level-max" min="1" max="12" value="12" oninput="validity.valid||(value='12')" /></label>
+                  <label>Link Rating Min: <input type="number" id="link-min" min="1" max="5" value="1" oninput="validity.valid||(value='1')" /></label>
+                  <label>Max: <input type="number" id="link-max" min="1" max="5" value="5" oninput="validity.valid||(value='5')" /></label>
+                </div>
+              </div>
+
+              <div class="filter-category" data-category="atk">
+                <button type="button" class="toggle-btn" aria-expanded="false">Attack ▼</button>
+                <div class="filter-options hidden">
+                  <label>Min: <input type="number" id="atk-min" min="0" max="5000" value="0" oninput="validity.valid||(value='0')" /></label>
+                  <label>Max: <input type="number" id="atk-max" min="0" max="5000" value="5000" oninput="validity.valid||(value='5000')" /></label>
+                </div>
+              </div>
+
+              <div class="filter-category" data-category="def">
+                <button type="button" class="toggle-btn" aria-expanded="false">Defense ▼</button>
+                <div class="filter-options hidden">
+                  <label>Min: <input type="number" id="def-min" min="0" max="3000" value="0" oninput="validity.valid||(value='0')" /></label>
+                  <label>Max: <input type="number" id="def-max" min="0" max="3000" value="3000" oninput="validity.valid||(value='3000')" /></label>
+                </div>
+              </div>
+
+              <div class="filter-category" data-category="spellType">
+                <button type="button" class="toggle-btn" aria-expanded="false">Spell Type ▼</button>
+                <div class="filter-options hidden">
+                  <label><input type="checkbox" value="NORMAL" /> Normal</label>
+                  <label><input type="checkbox" value="QUICK-PLAY" /> Quick-Play</label>
+                  <label><input type="checkbox" value="CONTINUOUS" /> Continuous</label>
+                  <label><input type="checkbox" value="FIELD" /> Field</label>
+                  <label><input type="checkbox" value="EQUIP" /> Equip</label>
+                  <label><input type="checkbox" value="RITUAL" /> Ritual</label>
+                </div>
+              </div>
+
+              <div class="filter-category" data-category="trapType">
+                <button type="button" class="toggle-btn" aria-expanded="false">Trap Type ▼</button>
+                <div class="filter-options hidden">
+                  <label><input type="checkbox" value="NORMAL" /> Normal</label>
+                  <label><input type="checkbox" value="CONTINUOUS" /> Continuous</label>
+                  <label><input type="checkbox" value="COUNTER" /> Counter</label>
+                </div>
+              </div>
+
+            </div>
           </div>
-          <select name="filter" id="filter">
-            <option value="">All</option>
-            <option value="dragon">Dragon</option>
-            <option value="spellcaster">Spellcaster</option>
-            <option value="light">Light Attribute</option>
-            <option value="dark">Dark Attribute</option>
-          </select>
+
+          <div class="input-container">
+            <input type="text" name="searchText" placeholder="name, type, attribute, etc." aria-label="Search cards" />
+          </div>
           <button type="submit">Search</button>
         </form>
       </div>
     </section>
 
-    <hr>
+    <hr />
 
-    <section class="card-results hidden">
-        <article class="card" data-id="CARD_ID_HERE">
-  <h2>Card Name</h2>
-  <img src="IMAGE_URL_HERE" alt="Card image">
-  <h3>Type - Attribute</h3>
-  <p>Card description goes here.</p>
-  <button class="save-btn" aria-label="Save card to library">✔️</button>
-</article>
-    </section>
+    <section class="card-results hidden"></section>
+    <div id="aria-live-region" aria-live="polite" aria-atomic="true" class="visually-hidden"></div>
   </main>
 
   <footer>
     <div class="footer-logo">
-      <img src="../images/Logo.jpeg" alt="Card Finder Site Logo" loading="lazy">
+      <img src="../images/Logo.jpeg" alt="Card Finder Site Logo" loading="lazy" />
     </div>
     <nav>
       <a href="../home/index.html">Home</a>

@@ -1,133 +1,311 @@
 const cards = [
   {
-    id: "blue-eyes",
-    name: "Blue-Eyes White Dragon",
-    type: "Dragon",
-    attribute: "LIGHT",
-    description: "This legendary dragon is a powerful engine of destruction.",
-    image: "../images/blue-eyes_white_dragon.jpg"
-  },
-  {
-    id: "dark-magician",
-    name: "Dark Magician",
-    type: "Spellcaster",
-    attribute: "DARK",
-    description: "The ultimate wizard in terms of attack and defense.",
-    image: "../images/dark_magician.jpg"
-  },
-  {
-    id: "red-eyes",
-    name: "Red-Eyes Black Dragon",
-    type: "Dragon",
-    attribute: "DARK",
-    description: "A ferocious dragon with a deadly attack.",
-    image: "../images/red-eyes_b._dragon.jpg"
-  },
-  {
-    id: "cyber-dragon",
+    id: 1,
     name: "Cyber Dragon",
-    type: "Machine",
+    image: "../images/cyber_dragon.jpg",
+    type: "MONSTER",
+    subtype: ["EFFECT"],
+    monsterType: "MACHINE",
+    level: 5,
     attribute: "LIGHT",
-    description: "Easy to summon and powerful, often used in combos.",
-    image: "../images/cyber_dragon.jpg"
-  }
+    atk: 2100,
+    def: 1600,
+    description: "A Cyber Dragon that is capable of attacking your opponent directly."
+  },
+  {
+    id: 2,
+    name: "Blue-Eyes White Dragon",
+    image: "../images/blue-eyes_white_dragon.jpg",
+    type: "MONSTER",
+    subtype: ["NORMAL"],
+    monsterType: "DRAGON",
+    level: 8,
+    attribute: "LIGHT",
+    atk: 3000,
+    def: 2500,
+    description: "This legendary dragon is a powerful engine of destruction. Virtually invincible, very few have faced this awesome creature and lived to tell the tale."
+  },
+  {
+    id: 3,
+    name: "Mirror Force",
+    image: "../images/mirror_force.jpg",
+    type: "TRAP",
+    trapType: "NORMAL",
+    description: "When an opponent's monster declares an attack: Destroy all your opponent's Attack Position monsters."
+  },
+  {
+    id: 5,
+    name: "Decode Talker",
+    image: "../images/decode_talker.jpg",
+    type: "MONSTER",
+    subtype: ["LINK"],
+    monsterType: "CYBERSE",
+    linkRating: 3,
+    attribute: "DARK",
+    atk: 2300,
+    description: "Gains 500 ATK for each monster it points to. When your opponent activates a card or effect that targets a card you control, you can tribute 1 monster this card points to; negate the activation."
+  },
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-  const searchForm = document.getElementById("search-form");
-  const cardResults = document.querySelector('.card-results');
-  let savedLibrary = JSON.parse(localStorage.getItem('cardLibrary')) || [];
+  const form = document.getElementById("search-form");
+  const filterMenu = document.querySelector(".filter-menu");
+  const toggleMainBtn = document.querySelector(".toggle-main");
+  const toggleBtns = document.querySelectorAll(".toggle-btn");
+  const clearFiltersBtn = document.getElementById("clear-filters");
+  const ariaLiveRegion = document.getElementById("aria-live-region");
 
-  function isCardSaved(cardId) {
-    return savedLibrary.some(card => card.id === cardId);
-  }
+  const selectors = {
+    type: filterMenu.querySelectorAll('div[data-category="type"] input[type="checkbox"]'),
+    attribute: filterMenu.querySelectorAll('div[data-category="attribute"] input[type="checkbox"]'),
+    monsterType: filterMenu.querySelectorAll('div[data-category="monsterType"] input[type="checkbox"]'),
+    subtype: filterMenu.querySelectorAll('div[data-category="subtype"] input[type="checkbox"]'),
+    spellType: filterMenu.querySelectorAll('div[data-category="spellType"] input[type="checkbox"]'),
+    trapType: filterMenu.querySelectorAll('div[data-category="trapType"] input[type="checkbox"]'),
+    exactMatch: filterMenu.querySelector('input[name="exactMatch"]')
+  };
 
-  function updateSaveButtons() {
-    const cardsOnPage = cardResults.querySelectorAll('.card');
-    cardsOnPage.forEach(card => {
-      const id = card.getAttribute('data-id');
-      const btn = card.querySelector('.save-btn');
-      if (isCardSaved(id)) {
-        btn.textContent = '✔️ Saved';
-        btn.disabled = true;
-        btn.style.cursor = 'default';
-      } else {
-        btn.textContent = '✔️';
-        btn.disabled = false;
-        btn.style.cursor = 'pointer';
+  const rangeInputs = {
+    levelMin: document.getElementById("level-min"),
+    levelMax: document.getElementById("level-max"),
+    linkMin: document.getElementById("link-min"),
+    linkMax: document.getElementById("link-max"),
+    atkMin: document.getElementById("atk-min"),
+    atkMax: document.getElementById("atk-max"),
+    defMin: document.getElementById("def-min"),
+    defMax: document.getElementById("def-max"),
+  };
+
+  toggleMainBtn.addEventListener("click", e => {
+    e.stopPropagation();
+    const expanded = toggleMainBtn.getAttribute("aria-expanded") === "true";
+    toggleMainBtn.setAttribute("aria-expanded", !expanded);
+    filterMenu.classList.toggle("hidden");
+  });
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.stopPropagation();
+      const options = btn.nextElementSibling;
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", !expanded);
+      options.classList.toggle("hidden");
+    });
+    btn.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        btn.click();
+      }
+    });
+  });
+
+  document.addEventListener("click", e => {
+    if (!filterMenu.contains(e.target) && !toggleMainBtn.contains(e.target)) {
+      filterMenu.classList.add("hidden");
+      toggleMainBtn.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  function toggleCategory(div, show) {
+    if (!div) return;
+    div.style.display = show ? "" : "none";
+    Array.from(div.querySelectorAll('input')).forEach(input => {
+      input.disabled = !show;
+      if (!show) {
+        if (input.type === "checkbox" || input.type === "radio") input.checked = false;
+        else input.value = "";
       }
     });
   }
 
-  function getCardData(cardElem) {
-    return {
-      id: cardElem.getAttribute('data-id'),
-      name: cardElem.querySelector('h2').textContent,
-      imgSrc: cardElem.querySelector('img').src,
-      type: cardElem.querySelector('h3').textContent.split(' - ')[0],
-      attribute: cardElem.querySelector('h3').textContent.split(' - ')[1],
-      description: cardElem.querySelector('p').textContent,
+  function updateFilterVisibilityByType() {
+    const selectedTypes = Array.from(selectors.type).filter(cb => cb.checked).map(cb => cb.value);
+
+    const categories = {
+      attribute: filterMenu.querySelector('div.filter-category[data-category="attribute"]'),
+      monsterType: filterMenu.querySelector('div.filter-category[data-category="monsterType"]'),
+      subtype: filterMenu.querySelector('div.filter-category[data-category="subtype"]'),
+      spellType: filterMenu.querySelector('div.filter-category[data-category="spellType"]'),
+      trapType: filterMenu.querySelector('div.filter-category[data-category="trapType"]'),
+      level: filterMenu.querySelector('div.filter-category[data-category="level"]'),
+      atk: filterMenu.querySelector('div.filter-category[data-category="atk"]'),
+      def: filterMenu.querySelector('div.filter-category[data-category="def"]'),
     };
+
+    if (selectedTypes.length === 0) {
+      Object.values(categories).forEach(div => toggleCategory(div, true));
+    } else {
+      const isMonster = selectedTypes.includes("MONSTER");
+      const isSpell = selectedTypes.includes("SPELL");
+      const isTrap = selectedTypes.includes("TRAP");
+
+      toggleCategory(categories.attribute, isMonster);
+      toggleCategory(categories.monsterType, isMonster);
+      toggleCategory(categories.subtype, isMonster);
+      toggleCategory(categories.spellType, isSpell);
+      toggleCategory(categories.trapType, isTrap);
+      toggleCategory(categories.level, isMonster);
+      toggleCategory(categories.atk, isMonster);
+      toggleCategory(categories.def, isMonster);
+    }
   }
 
-  cardResults.addEventListener('click', (e) => {
-    if (e.target.classList.contains('save-btn')) {
-      const cardElem = e.target.closest('.card');
-      const cardData = getCardData(cardElem);
+  function getCheckedValues(checkboxes) {
+    return Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
+  }
 
-      if (!isCardSaved(cardData.id)) {
-        savedLibrary.push(cardData);
-        localStorage.setItem('cardLibrary', JSON.stringify(savedLibrary));
-        updateSaveButtons();
-      }
-    }
-  });
+  function parseRange(input, fallback) {
+    const val = parseInt(input.value, 10);
+    return isNaN(val) ? fallback : val;
+  }
 
-  function renderCards(filteredCards) {
-    cardResults.innerHTML = '';
-    if (filteredCards.length === 0) {
-      cardResults.innerHTML = '<p>No matching cards found.</p>';
+  function filterAndDisplay() {
+    const searchText = form.querySelector('input[name="searchText"]').value.trim().toLowerCase();
+    const exactMatchChecked = selectors.exactMatch.checked;
+
+    const selectedTypes = getCheckedValues(selectors.type);
+    const selectedAttributes = getCheckedValues(selectors.attribute);
+    const selectedMonsterTypes = getCheckedValues(selectors.monsterType);
+    const selectedSubtypes = getCheckedValues(selectors.subtype);
+    const selectedSpellTypes = getCheckedValues(selectors.spellType);
+    const selectedTrapTypes = getCheckedValues(selectors.trapType);
+
+    const levelMin = parseRange(rangeInputs.levelMin, 1);
+    const levelMax = parseRange(rangeInputs.levelMax, 12);
+    const linkMin = parseRange(rangeInputs.linkMin, 1);
+    const linkMax = parseRange(rangeInputs.linkMax, 5);
+    const atkMin = parseRange(rangeInputs.atkMin, 0);
+    const atkMax = parseRange(rangeInputs.atkMax, 5000);
+    const defMin = parseRange(rangeInputs.defMin, 0);
+    const defMax = parseRange(rangeInputs.defMax, 3000);
+
+    const resultsSection = document.querySelector(".card-results");
+    resultsSection.classList.remove("hidden");
+    resultsSection.innerHTML = "";
+
+    const matchValue = (value) => {
+      if (value === undefined || value === null) return false;
+      value = value.toString().toLowerCase();
+      return exactMatchChecked ? value === searchText : value.includes(searchText);
+    };
+
+    const matchedCards = cards.filter(card => {
+      if (selectedTypes.length && !selectedTypes.includes(card.type)) return false;
+      if (selectedAttributes.length && (!card.attribute || !selectedAttributes.includes(card.attribute))) return false;
+      if (selectedMonsterTypes.length && (!card.monsterType || !selectedMonsterTypes.includes(card.monsterType))) return false;
+      if (selectedSubtypes.length && (!card.subtype || !card.subtype.some(s => selectedSubtypes.includes(s)))) return false;
+      if (selectedSpellTypes.length && (!card.spellType || !selectedSpellTypes.includes(card.spellType))) return false;
+      if (selectedTrapTypes.length && (!card.trapType || !selectedTrapTypes.includes(card.trapType))) return false;
+      if (card.level !== undefined && (card.level < levelMin || card.level > levelMax)) return false;
+      if (card.rank !== undefined && (card.rank < levelMin || card.rank > levelMax)) return false;
+      if (card.linkRating !== undefined && (card.linkRating < linkMin || card.linkRating > linkMax)) return false;
+      if (card.atk !== undefined && (card.atk < atkMin || card.atk > atkMax)) return false;
+      if (card.def !== undefined && (card.def < defMin || card.def > defMax)) return false;
+
+      return (
+        matchValue(card.name) ||
+        matchValue(card.type) ||
+        matchValue(card.attribute) ||
+        matchValue(card.monsterType) ||
+        matchValue(card.spellType) ||
+        matchValue(card.trapType) ||
+        matchValue(card.description) ||
+        (card.subtype && card.subtype.some(s => matchValue(s))) ||
+        (card.level !== undefined && matchValue(card.level)) ||
+        (card.rank !== undefined && matchValue(card.rank)) ||
+        (card.linkRating !== undefined && matchValue(card.linkRating)) ||
+        (card.atk !== undefined && matchValue(card.atk)) ||
+        (card.def !== undefined && matchValue(card.def))
+      );
+    });
+
+    if (!matchedCards.length) {
+      resultsSection.style.cssText = "display:flex;justify-content:center;align-items:center;height:300px;";
+      resultsSection.innerHTML = `<p style="font-size: 2rem; text-align: center;">No cards found matching your search.</p>`;
       return;
     }
 
-    filteredCards.forEach(card => {
-      const cardEl = document.createElement('article');
-      cardEl.className = 'card';
-      cardEl.dataset.id = card.id;
-      cardEl.innerHTML = `
-        <h2>${card.name}</h2>
-        <img src="${card.image}" alt="${card.name}">
-        <h3>${card.type} - ${card.attribute}</h3>
-        <p>${card.description}</p>
-        <button class="save-btn" aria-label="Save card to library">✔️</button>
-      `;
-      cardResults.appendChild(cardEl);
-    });
+    resultsSection.style.cssText = "";
 
-    cardResults.classList.remove('hidden');
-    updateSaveButtons();
+    matchedCards.forEach(card => {
+      const cardDiv = document.createElement("div");
+      cardDiv.classList.add("card");
+
+      let html = `<h3>${card.name}</h3><img src="${card.image}" alt="${card.name}" loading="lazy" width="200" height="200">`;
+      if (card.type) html += `<p><strong>Type:</strong> ${card.type}</p>`;
+      if (card.monsterType) html += `<p><strong>Monster Type:</strong> ${card.monsterType}</p>`;
+      if (card.level !== undefined) html += `<p><strong>Level:</strong> ${card.level} | <strong>Attribute:</strong> ${card.attribute}</p>`;
+      if (card.rank !== undefined) html += `<p><strong>Rank:</strong> ${card.rank} | <strong>Attribute:</strong> ${card.attribute}</p>`;
+      if (card.linkRating !== undefined) html += `<p><strong>Link Rating:</strong> ${card.linkRating} | <strong>Attribute:</strong> ${card.attribute}</p>`;
+      if (card.atk !== undefined && card.def !== undefined) html += `<p><strong>ATK:</strong> ${card.atk} | <strong>DEF:</strong> ${card.def}</p>`;
+      else if (card.atk !== undefined && card.linkRating !== undefined) html += `<p><strong>ATK:</strong> ${card.atk}</p>`;
+      if (card.spellType) html += `<p><strong>Spell Type:</strong> ${card.spellType}</p>`;
+      if (card.trapType) html += `<p><strong>Trap Type:</strong> ${card.trapType}</p>`;
+      if (card.description) html += `<p>${card.description}</p>`;
+
+      html += `<button class="save-btn">Save ✔</button>`;
+      cardDiv.innerHTML = html;
+
+      let savedCards = JSON.parse(localStorage.getItem("savedCards") || "[]");
+      const isSaved = savedCards.some(saved => saved.id === card.id);
+      const saveBtn = cardDiv.querySelector(".save-btn");
+
+      if (isSaved) {
+        saveBtn.textContent = "Saved ✔";
+        saveBtn.style.backgroundColor = "#D04735";
+      } else {
+        saveBtn.style.backgroundColor = "#80355B";
+      }
+
+      saveBtn.addEventListener("click", () => {
+        savedCards = JSON.parse(localStorage.getItem("savedCards") || "[]");
+        const index = savedCards.findIndex(saved => saved.id === card.id);
+        if (index === -1) {
+          savedCards.push(card);
+          saveBtn.textContent = "Saved ✔";
+          saveBtn.style.backgroundColor = "#D04735";
+          ariaLiveRegion.textContent = `${card.name} saved to your library.`;
+        } else {
+          savedCards.splice(index, 1);
+          saveBtn.textContent = "Save ✔";
+          saveBtn.style.backgroundColor = "#80355B";
+          ariaLiveRegion.textContent = `${card.name} removed from your library.`;
+        }
+        localStorage.setItem("savedCards", JSON.stringify(savedCards));
+      });
+
+      resultsSection.appendChild(cardDiv);
+    });
   }
 
-  searchForm.addEventListener("submit", (e) => {
+  form.addEventListener("submit", e => {
     e.preventDefault();
-    const query = searchForm.querySelector('input').value.toLowerCase();
-    const filterValue = document.getElementById('filter').value.toLowerCase();
-
-    const filtered = cards.filter(card => {
-      const matchesQuery = 
-        card.name.toLowerCase().includes(query) ||
-        card.type.toLowerCase().includes(query) ||
-        card.attribute.toLowerCase().includes(query) ||
-        card.description.toLowerCase().includes(query);
-
-      const matchesFilter = 
-        !filterValue ||
-        card.type.toLowerCase() === filterValue ||
-        card.attribute.toLowerCase() === filterValue;
-
-      return matchesQuery && matchesFilter;
-    });
-
-    renderCards(filtered);
+    filterAndDisplay();
   });
+
+  [...selectors.type, ...selectors.attribute, ...selectors.monsterType, ...selectors.subtype, ...selectors.spellType, ...selectors.trapType,
+    ...Object.values(rangeInputs), selectors.exactMatch].forEach(input => {
+    input.addEventListener("change", () => {
+      updateFilterVisibilityByType();
+      filterAndDisplay();
+    });
+  });
+
+  clearFiltersBtn.addEventListener("click", () => {
+    [...selectors.type, ...selectors.attribute, ...selectors.monsterType, ...selectors.subtype, ...selectors.spellType, ...selectors.trapType].forEach(cb => cb.checked = false);
+    rangeInputs.levelMin.value = 1;
+    rangeInputs.levelMax.value = 12;
+    rangeInputs.linkMin.value = 1;
+    rangeInputs.linkMax.value = 5;
+    rangeInputs.atkMin.value = 0;
+    rangeInputs.atkMax.value = 5000;
+    rangeInputs.defMin.value = 0;
+    rangeInputs.defMax.value = 3000;
+    selectors.exactMatch.checked = false;
+    form.querySelector('input[name="searchText"]').value = "";
+    document.querySelector(".card-results").innerHTML = '';
+    updateFilterVisibilityByType();
+  });
+
+  updateFilterVisibilityByType();
 });
