@@ -37,8 +37,7 @@ header {
   color: white;
 }
 
-.logo-img,
-.footer-logo img {
+.logo-img, .footer-logo img {
   aspect-ratio: 1 / 1;
   width: 200px;
   object-fit: contain;
@@ -74,8 +73,7 @@ nav a:hover {
   margin: 1em auto;
 }
 
-.library-intro h2,
-.empty-library p {
+.library-intro h2, .empty-library p {
   font-size: 1.8em;
   margin: 2em 0;
 }
@@ -103,8 +101,7 @@ nav a:hover {
   text-align: center;
 }
 
-.card h2,
-.card h3 {
+.card h2, .card h3 {
   color: #80355B;
 }
 
@@ -169,8 +166,7 @@ footer nav a:hover {
   background-color: white;
 }
 
-.clear-library-btn,
-.card button {
+.clear-library-btn, .card button {
   margin-top: 0.5em;
   padding: 0.5em 1.1em;
   background: #80355B;

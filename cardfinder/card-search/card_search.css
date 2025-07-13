@@ -264,8 +264,7 @@ nav a:hover {
   margin-left: 6px;
 }
 
-.logo-img,
-.footer-logo img {
+.logo-img, .footer-logo img {
   aspect-ratio: 1 / 1;
   width: 200px;
   object-fit: contain;
@@ -280,13 +279,12 @@ nav a:hover {
   padding: 0 !important;
   margin: -1px !important;
   overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
   white-space: nowrap !important;
   border: 0 !important;
 }
 
-.toggle-main:focus,
-.toggle-btn:focus {
+.toggle-main:focus, .toggle-btn:focus {
   outline: 3px solid #D04735;
   outline-offset: 2px;
 }
