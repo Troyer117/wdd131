@@ -215,7 +215,7 @@ const cards = [
   {
   id: 19,
   name: "Red‑Eyes Black Dragon",
-  image: "../images/red-eyes_black_dragon.webp",
+  image: "../images/red-eyes_b.dragon.webp",
   type: "MONSTER",
   subtype: ["NORMAL"],
   monsterType: "DRAGON",
@@ -254,7 +254,7 @@ const cards = [
   {
   id: 22,
   name: "Gagagaga Magician",
-  image: "../images/gagagaga_magician_xyz.webp",
+  image: "../images/gagagaga_magician.webp",
   type: "MONSTER",
   subtype: ["XYZ", "EFFECT"],
   monsterType: "SPELLCASTER",
@@ -522,7 +522,7 @@ const cards = [
   {
   id: 43,
   name: "Sprite's Blessing",
-  image: "../images/sprites_blessing.webp",
+  image: "../images/sprite's_blessing.webp",
   type: "SPELL",
   spellType: "RITUAL",
   description: "This card can be used to Ritual Summon any LIGHT Ritual Monster. You must also Tribute monsters from your hand or field whose total Levels exactly equal the Level of the Ritual Monster you Ritual Summon."
