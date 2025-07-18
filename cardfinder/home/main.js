@@ -1,14 +1,14 @@
 const carouselImages = [
-  { src: "../images/blue-eyes_white_dragon.jpg", alt: "Blue-Eyes White Dragon" },
-  { src: "../images/cyber_dragon.jpg", alt: "Cyber Dragon" },
-  { src: "../images/dark_magician.jpg", alt: "Dark Magician" },
-  { src: "../images/decode_talker.jpg", alt: "Decode Talker" },
-  { src: "../images/gagagaga_magician.jpg", alt: "Gagagaga Magician" },
-  { src: "../images/mirror_force.jpg", alt: "Mirror Force" },
-  { src: "../images/obelisk_the_tormentor.jpg", alt: "Obelisk the Tormentor" },
-  { src: "../images/odd-eyes_pendulum_dragon.jpg", alt: "Odd-Eyes Pendulum Dragon" },
-  { src: "../images/red-eyes_b._dragon.jpg", alt: "Red-Eyes Black Dragon" },
-  { src: "../images/slifer_the_sky_dragon.jpg", alt: "Slifer the Sky Dragon" }
+  { src: "../images/blue-eyes_white_dragon.webp", alt: "Blue-Eyes White Dragon" },
+  { src: "../images/cyber_dragon.webp", alt: "Cyber Dragon" },
+  { src: "../images/dark_magician.webp", alt: "Dark Magician" },
+  { src: "../images/decode_talker.webp", alt: "Decode Talker" },
+  { src: "../images/gagagaga_magician.webp", alt: "Gagagaga Magician" },
+  { src: "../images/mirror_force.webp", alt: "Mirror Force" },
+  { src: "../images/obelisk_the_tormentor.webp", alt: "Obelisk the Tormentor" },
+  { src: "../images/odd-eyes_pendulum_dragon.webp", alt: "Odd-Eyes Pendulum Dragon" },
+  { src: "../images/red-eyes_b._dragon.webp", alt: "Red-Eyes Black Dragon" },
+  { src: "../images/slifer_the_sky_dragon.webp", alt: "Slifer the Sky Dragon" }
 ];
 
 let currentIndex = 0;

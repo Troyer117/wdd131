@@ -2,7 +2,7 @@ const cards = [
   {
     id: 1,
     name: "Cyber Dragon",
-    image: "../images/cyber_dragon.jpg",
+    image: "../images/cyber_dragon.webp",
     type: "MONSTER",
     subtype: ["EFFECT"],
     monsterType: "MACHINE",
@@ -10,12 +10,12 @@ const cards = [
     attribute: "LIGHT",
     atk: 2100,
     def: 1600,
-    description: "A Cyber Dragon that is capable of attacking your opponent directly."
+    description: "If only your opponent controls a monster, you can Special Summon this card (from your hand)."
   },
   {
     id: 2,
     name: "Blue-Eyes White Dragon",
-    image: "../images/blue-eyes_white_dragon.jpg",
+    image: "../images/blue-eyes_white_dragon.webp",
     type: "MONSTER",
     subtype: ["NORMAL"],
     monsterType: "DRAGON",
@@ -28,22 +28,100 @@ const cards = [
   {
     id: 3,
     name: "Mirror Force",
-    image: "../images/mirror_force.jpg",
+    image: "../images/mirror_force.webp",
     type: "TRAP",
     trapType: "NORMAL",
     description: "When an opponent's monster declares an attack: Destroy all your opponent's Attack Position monsters."
   },
   {
+  id: 4,
+  name: "Dark Magician",
+  image: "../images/dark_magician.webp",
+  type: "MONSTER",
+  subtype: ["NORMAL"],
+  monsterType: "SPELLCASTER",
+  level: 7,
+  attribute: "DARK",
+  atk: 2500,
+  def: 2100,
+  description: "The ultimate wizard in terms of attack and defense."
+  },
+  {
     id: 5,
     name: "Decode Talker",
-    image: "../images/decode_talker.jpg",
+    image: "../images/decode_talker.webp",
     type: "MONSTER",
     subtype: ["LINK"],
     monsterType: "CYBERSE",
     linkRating: 3,
     attribute: "DARK",
     atk: 2300,
-    description: "Gains 500 ATK for each monster it points to. When your opponent activates a card or effect that targets a card you control, you can tribute 1 monster this card points to; negate the activation."
+    description: "[2+ Effect Monsters] Gains 500 ATK for each monster it points to. When your opponent activates a card or effect that targets a card you control, you can tribute 1 monster this card points to; negate the activation."
+  },
+  {
+  id: 6,
+  name: "Cycroid",
+  image: "../images/cycroid.webp",
+  type: "MONSTER",
+  subtype: ["NORMAL"],
+  monsterType: "MACHINE",
+  level: 3,
+  attribute: "EARTH",
+  atk: 800,
+  def: 1000,
+  description: "The most lovable and friendly of all the Vehicroids. It can arm itself with training wheels."
+  },
+  {
+  id: 7,
+  name: "Aeropixthree",
+  image: "../images/aeropixthree.webp",
+  type: "MONSTER",
+  subtype: ["EFFECT", "TUNER"],
+  monsterType: "FAIRY",
+  level: 1,
+  attribute: "WIND",
+  atk: 200,
+  def: 200,
+  description: "Once per turn (Quick Effect): You can target 1 face-up monster your opponent controls in this card's column; move this card you control to another of your Main Monster Zones, and if you do, move that opponent's monster to their Main Monster Zone in this card's column, then place 1 Burnup Counter on it. (Monsters with Burnup Counters lose 200 ATK/DEF for each Burnup Counter on it.)"
+  },
+  {
+  id: 8,
+  name: "Ambulance Rescueroid",
+  image: "../images/ambulance_rescueroid.webp",
+  type: "MONSTER",
+  subtype: ["FUSION"],
+  monsterType: "MACHINE",
+  level: 6,
+  attribute: "FIRE",
+  atk: 2300,
+  def: 1800,
+  description: "[\"Rescueroid\" + \"Ambulanceroid\"] Must be Fusion Summoned. Once per turn, when a monster you control is destroyed by battle and sent to the GY: You can Special Summon that monster in Defense Position."
+  },
+  {
+  id: 9,
+  name: "Ambulanceroid",
+  image: "../images/ambulanceroid.webp",
+  type: "MONSTER",
+  subtype: ["EFFECT"],
+  monsterType: "MACHINE",
+  level: 3,
+  attribute: "EARTH",
+  atk: 300,
+  def: 1200,
+  description: "When a \"roid\" monster(s) is added from your GY to your hand (except during the Damage Step): You can Special Summon it."
+  },
+  {
+  id: 10,
+  name: "Banisher of the Radiance",
+  image: "../images/banisher_of_the_radiance.webp",
+  type: "MONSTER",
+  subtype: ["EFFECT"],
+  monsterType: "FAIRY",
+  level: 3,
+  attribute: "LIGHT",
+  atk: 1600,
+  def: 0,
+  description: "Any card sent to the GY is banished instead."
   },
 ];
 
@@ -232,15 +310,32 @@ document.addEventListener("DOMContentLoaded", () => {
       cardDiv.classList.add("card");
 
       let html = `<h3>${card.name}</h3><img src="${card.image}" alt="${card.name}" loading="lazy" width="200" height="200">`;
-      if (card.type) html += `<p><strong>Type:</strong> ${card.type}</p>`;
+
+      if (card.type) {
+        html += `<p><strong>Type:</strong> ${card.type}`;
+        if (card.subtype) {
+          html += ` | <strong>Subtype:</strong> ${card.subtype.join(", ")}`;
+        }
+        html += `</p>`;
+      }
+
       if (card.monsterType) html += `<p><strong>Monster Type:</strong> ${card.monsterType}</p>`;
       if (card.level !== undefined) html += `<p><strong>Level:</strong> ${card.level} | <strong>Attribute:</strong> ${card.attribute}</p>`;
       if (card.rank !== undefined) html += `<p><strong>Rank:</strong> ${card.rank} | <strong>Attribute:</strong> ${card.attribute}</p>`;
       if (card.linkRating !== undefined) html += `<p><strong>Link Rating:</strong> ${card.linkRating} | <strong>Attribute:</strong> ${card.attribute}</p>`;
       if (card.atk !== undefined && card.def !== undefined) html += `<p><strong>ATK:</strong> ${card.atk} | <strong>DEF:</strong> ${card.def}</p>`;
       else if (card.atk !== undefined && card.linkRating !== undefined) html += `<p><strong>ATK:</strong> ${card.atk}</p>`;
-      if (card.spellType) html += `<p><strong>Spell Type:</strong> ${card.spellType}</p>`;
-      if (card.trapType) html += `<p><strong>Trap Type:</strong> ${card.trapType}</p>`;
+
+      if (card.spellType) {
+        const spellTypeText = Array.isArray(card.spellType) ? card.spellType.join(", ") : card.spellType;
+        html += `<p><strong>Spell Type:</strong> ${spellTypeText}</p>`;
+      }
+
+      if (card.trapType) {
+        const trapTypeText = Array.isArray(card.trapType) ? card.trapType.join(", ") : card.trapType;
+        html += `<p><strong>Trap Type:</strong> ${trapTypeText}</p>`;
+      }
+
       if (card.description) html += `<p>${card.description}</p>`;
 
       html += `<button class="save-btn">Save ✔</button>`;

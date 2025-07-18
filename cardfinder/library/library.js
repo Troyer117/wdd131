@@ -12,7 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const buildCardHTML = card => {
     let html = `<h3>${card.name}</h3><img src="${card.image}" alt="${card.name}" loading="lazy">`;
-    if (card.type) html += `<p><strong>Type:</strong> ${card.type}</p>`;
+    if (card.type) {
+      html += `<p><strong>Type:</strong> ${card.type}`;
+      if (card.subtype) {
+        html += ` | <strong>Subtype:</strong> ${card.subtype.join(", ")}`;
+      }
+      html += `</p>`;
+    }
     if (card.monsterType) html += `<p><strong>Monster Type:</strong> ${card.monsterType}</p>`;
     if (card.level !== undefined) html += `<p><strong>Level:</strong> ${card.level} | <strong>Attribute:</strong> ${card.attribute}</p>`;
     if (card.rank !== undefined) html += `<p><strong>Rank:</strong> ${card.rank} | <strong>Attribute:</strong> ${card.attribute}</p>`;
@@ -32,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!savedCards.length) {
       savedCardsSection.innerHTML = `
         <div class="empty-library">
-          <img src="../images/back_of_card.jpg" alt="Empty Library" loading="lazy">
+          <img src="../images/back_of_card.webp" alt="Empty Library" loading="lazy">
           <p>Your library is currently empty.</p>
         </div>`;
       return;
